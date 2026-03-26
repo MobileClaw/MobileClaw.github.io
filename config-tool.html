@@ -1,0 +1,175 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Config Tool - MobileClaw</title>
+  <meta name="description" content="Generate MobileClaw config.yaml QR codes for mobile import.">
+  <link rel="icon" type="image/x-icon" href="res/favicon/favicon.ico">
+  <link rel="icon" type="image/png" sizes="16x16" href="res/favicon/favicon-16x16.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="res/favicon/favicon-32x32.png">
+  <link rel="apple-touch-icon" sizes="180x180" href="res/favicon/apple-touch-icon.png">
+  <link rel="manifest" href="res/favicon/site.webmanifest">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+  <script src="https://cdn.bootcdn.net/ajax/libs/qrcodejs/1.0.0/qrcode.min.js"></script>
+</head>
+<body class="en">
+  <div class="bg-orb bg-orb-a" aria-hidden="true"></div>
+  <div class="bg-orb bg-orb-b" aria-hidden="true"></div>
+
+  <nav class="nav">
+    <div class="wrap nav-inner">
+      <a class="site-title" href="index.html">MobileClaw</a>
+      <div class="nav-links">
+        <a href="index.html"><span class="i-en">Home</span><span class="i-zh">首页</span></a>
+        <a class="is-active" href="config-tool.html"><span class="i-en">Config Tool</span><span class="i-zh">配置工具</span></a>
+        <a href="blogs.html"><span class="i-en">Blogs</span><span class="i-zh">文档</span></a>
+        <a href="https://github.com/MobileLLM/MobileClaw" target="_blank" rel="noreferrer">GitHub</a>
+      </div>
+      <button class="lang-btn" id="langToggle" type="button" aria-label="Toggle language">🌐 中文</button>
+    </div>
+  </nav>
+
+  <main class="section">
+    <div class="wrap">
+      <section class="section-head reveal">
+        <p class="eyebrow"><span class="i-en">Config Tool</span><span class="i-zh">配置工具</span></p>
+        <h2><span class="i-en">Configure your MobileClaw through QR code</span><span class="i-zh">通过二维码配置你的 MobileClaw</span></h2>
+        <p class="lead">
+          <span class="i-en">After installing the MobileClaw app, fill in the configuration below, generate a QR code, and scan it in the MobileClaw app to import the config.</span>
+          <span class="i-zh">安装 MobileClaw app 之后，填写如下配置信息，生成二维码，使用手机端 MobileClaw app 扫码即可导入配置。</span>
+        </p>
+      </section>
+
+      <section class="tool-layout reveal reveal-delay-1">
+        <form class="config-form" id="configToolForm">
+          <div class="tool-section">
+            <h3><span class="i-en">Model Provider</span><span class="i-zh">模型服务</span></h3>
+            <div class="radio-row">
+              <label class="choice-pill"><input type="radio" name="model_provider" value="custom" checked> <span class="i-en">Custom</span><span class="i-zh">自定义</span></label>
+              <label class="choice-pill"><input type="radio" name="model_provider" value="wisewk"> <span class="i-en">Wisewk (Recommended)</span><span class="i-zh">Wisewk (推荐)</span></label>
+            </div>
+
+            <div class="field-group" data-provider-block="wisewk">
+              <p><span class="i-en">Wisewk provides an all-in-one API service tailored for agents, with better experience and lower cost.</span><span class="i-zh">Wisewk 提供为智能体定制的体验更佳、价格更低的一站式 API 服务。</span></p>
+              <label class="field-label" for="wisewkKey"><span class="i-en">Wisewk Key</span><span class="i-zh">Wisewk Key</span></label>
+              <input class="text-field" id="wisewkKey" name="wisewk_key" type="text" placeholder="wk-...">
+            </div>
+
+            <div class="field-group" data-provider-block="custom">
+              <div class="toggle-line">
+                <label class="check-line"><input type="checkbox" id="useCustomFm" checked> <span class="i-en">Use Custom FM</span><span class="i-zh">启用自定义基座模型</span></label>
+              </div>
+              <label class="field-label" for="fmUrl"><span class="i-en">Foundation Model Base URL</span><span class="i-zh">基座模型 Base URL</span></label>
+              <input class="text-field" id="fmUrl" name="custom_fm_url" type="text" placeholder="https://api.openai.com/v1/chat/completions">
+              <label class="field-label" for="fmKey"><span class="i-en">Foundation Model API Key</span><span class="i-zh">基座模型 API Key</span></label>
+              <input class="text-field" id="fmKey" name="custom_fm_key" type="text" placeholder="sk-...">
+              <label class="field-label" for="fmName"><span class="i-en">Foundation Model Name</span><span class="i-zh">基座模型名称</span></label>
+              <input class="text-field" id="fmName" name="custom_fm_name" type="text" placeholder="gpt-5.4">
+
+              <div class="toggle-line top-gap">
+                <label class="check-line"><input type="checkbox" id="useCustomGuiVlm" checked> <span class="i-en">Use Custom GUI VLM</span><span class="i-zh">启用自定义 GUI 模型</span></label>
+              </div>
+              <label class="field-label" for="guiVlmUrl"><span class="i-en">GUI Model Base URL</span><span class="i-zh">GUI模型 Base URL</span></label>
+              <input class="text-field" id="guiVlmUrl" name="custom_gui_vlm_url" type="text" placeholder="https://api.openai.com/v1/chat/completions">
+              <label class="field-label" for="guiVlmKey"><span class="i-en">GUI Model API Key</span><span class="i-zh">GUI模型 API Key</span></label>
+              <input class="text-field" id="guiVlmKey" name="custom_gui_vlm_key" type="text" placeholder="sk-...">
+              <label class="field-label" for="guiVlmName"><span class="i-en">GUI Model Name</span><span class="i-zh">GUI模型名称</span></label>
+              <input class="text-field" id="guiVlmName" name="custom_gui_vlm_name" type="text" placeholder="gpt-5.4">
+
+              <div class="toggle-line top-gap">
+                <label class="check-line"><input type="checkbox" id="useWisewkBackup"> <span class="i-en">Use Wisewk as Backup</span><span class="i-zh">使用 Wisewk 作为备选</span></label>
+              </div>
+              <div class="field-group backup-fields" id="wisewkBackupBlock">
+                <label class="field-label" for="wisewkBackupKey"><span class="i-en">Wisewk Key</span><span class="i-zh">Wisewk Key</span></label>
+                <input class="text-field" id="wisewkBackupKey" type="text" placeholder="wk-...">
+              </div>
+            </div>
+          </div>
+
+          <div class="tool-section">
+            <h3><span class="i-en">Chat Channels</span><span class="i-zh">聊天接口</span></h3>
+            <div class="channel-grid">
+              <label class="check-line"><input type="checkbox" id="channelTelegram"> <span class="i-en">Telegram</span><span class="i-zh">Telegram</span></label>
+              <label class="check-line"><input type="checkbox" id="channelZulip"> <span class="i-en">Zulip</span><span class="i-zh">Zulip</span></label>
+              <label class="check-line"><input type="checkbox" id="channelLark"> <span class="i-en">Lark / Feishu</span><span class="i-zh">飞书 / Lark</span></label>
+              <label class="check-line"><input type="checkbox" id="channelWeixin"> <span class="i-en">Weixin</span><span class="i-zh">微信</span></label>
+            </div>
+
+            <div class="field-group channel-fields" data-channel-block="telegram">
+              <label class="field-label" for="telegramToken"><span class="i-en">Telegram Bot Token</span><span class="i-zh">Telegram Bot Token</span></label>
+              <input class="text-field" id="telegramToken" name="chat_telegram_token" type="text" placeholder="123456:ABC...">
+            </div>
+
+            <div class="field-group channel-fields" data-channel-block="zulip">
+              <label class="field-label" for="zulipEmail"><span class="i-en">Zulip Bot Email</span><span class="i-zh">Zulip Bot Email</span></label>
+              <input class="text-field" id="zulipEmail" name="chat_zulip_email" type="text" placeholder="bot@example.com">
+              <label class="field-label" for="zulipKey"><span class="i-en">Zulip API Key</span><span class="i-zh">Zulip API Key</span></label>
+              <input class="text-field" id="zulipKey" name="chat_zulip_key" type="text" placeholder="api-key">
+              <label class="field-label" for="zulipSite"><span class="i-en">Zulip Site</span><span class="i-zh">Zulip Site</span></label>
+              <input class="text-field" id="zulipSite" name="chat_zulip_site" type="text" placeholder="https://your-org.zulipchat.com">
+            </div>
+
+            <div class="field-group channel-fields" data-channel-block="lark">
+              <label class="field-label" for="larkAppId"><span class="i-en">Lark / Feishu App ID</span><span class="i-zh">飞书 / Lark App ID</span></label>
+              <input class="text-field" id="larkAppId" name="chat_lark_app_id" type="text" placeholder="cli_xxx">
+              <label class="field-label" for="larkAppSecret"><span class="i-en">Lark / Feishu App Secret</span><span class="i-zh">飞书 / Lark App Secret</span></label>
+              <input class="text-field" id="larkAppSecret" name="chat_lark_app_secret" type="text" placeholder="secret">
+            </div>
+
+            <div class="field-group channel-fields" data-channel-block="weixin">
+              <label class="field-label" for="weixinBaseUrl"><span class="i-en">Weixin Base URL (Optional)</span><span class="i-zh">微信 Base URL (可选)</span></label>
+              <input class="text-field" id="weixinBaseUrl" name="chat_weixin_base_url" type="text" value="https://ilinkai.weixin.qq.com">
+              <label class="field-label" for="weixinBotToken"><span class="i-en">Weixin Bot Token (Optional; If not specified, scan with Weixin to bind later)</span><span class="i-zh">微信 Bot Token (可选；如不指定，可以随后微信扫码绑定)</span></label>
+              <input class="text-field" id="weixinBotToken" name="chat_weixin_bot_token" type="text" placeholder="token">
+            </div>
+          </div>
+
+          <div class="tool-actions">
+            <button class="btn primary" type="button" id="generateConfigQr">
+              <span class="i-en">Generate QR Code</span>
+              <span class="i-zh">生成二维码</span>
+            </button>
+            <button class="btn secondary" type="button" id="copyConfigYaml">
+              <span class="i-en">Copy YAML</span>
+              <span class="i-zh">复制 YAML</span>
+            </button>
+          </div>
+        </form>
+
+        <aside class="config-output">
+          <div class="tool-section sticky-output">
+            <h3><span class="i-en">QR Code</span><span class="i-zh">二维码</span></h3>
+            <p class="lead small-lead">
+              <span class="i-en">Generate the YAML first, then scan this QR code on your phone.</span>
+              <span class="i-zh">先生成配置内容，再用手机扫码读取。</span>
+            </p>
+            <div class="qr-shell">
+              <div class="qr-code" id="configQrCode"></div>
+            </div>
+            <p class="qr-note">
+              <span class="i-en">The QR code contains raw `config.yaml` text.</span>
+              <span class="i-zh">二维码中包含原始 `config.yaml` 文本。</span>
+            </p>
+
+            <h3 class="top-gap"><span class="i-en">YAML Preview</span><span class="i-zh">YAML 预览</span></h3>
+            <textarea class="yaml-preview" id="configYamlPreview" readonly></textarea>
+          </div>
+        </aside>
+      </section>
+    </div>
+  </main>
+
+  <footer class="footer">
+    <div class="wrap footer-inner">
+      <span class="i-en">MobileClaw · Config Tool</span>
+      <span class="i-zh">MobileClaw · 配置工具</span>
+    </div>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+</html>
