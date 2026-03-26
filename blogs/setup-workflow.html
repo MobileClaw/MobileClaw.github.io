@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>MobileClaw App Installation and Configuration Workflow</title>
+  <meta name="description" content="A detailed MobileClaw setup guide covering app install, model configuration, chat channels, permissions, profile, launch, and interaction.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../style.css">
+</head>
+<body class="en">
+  <div class="bg-orb bg-orb-a" aria-hidden="true"></div>
+  <div class="bg-orb bg-orb-b" aria-hidden="true"></div>
+
+  <nav class="nav">
+    <div class="wrap nav-inner">
+      <a class="site-title" href="../index.html">MobileClaw</a>
+      <div class="nav-links">
+        <a href="../index.html"><span class="i-en">Home</span><span class="i-zh">首页</span></a>
+        <a class="is-active" href="../blogs.html"><span class="i-en">Blogs</span><span class="i-zh">文档</span></a>
+        <a href="https://github.com/MobileLLM/MobileClaw" target="_blank" rel="noreferrer">GitHub</a>
+      </div>
+      <button class="lang-btn" id="langToggle" type="button" aria-label="Toggle language">🌐 中文</button>
+    </div>
+  </nav>
+
+  <main class="article-page">
+    <article class="article-shell reveal">
+      <p class="eyebrow"><span class="i-en">Setup Guide</span><span class="i-zh">完整流程</span></p>
+      <h1><span class="i-en">MobileClaw App Installation and Configuration Workflow</span><span class="i-zh">MobileClaw App 安装配置流程</span></h1>
+      <div class="article-meta">
+        <span class="meta-pill"><span class="i-en">Detailed walkthrough</span><span class="i-zh">详细步骤</span></span>
+        <span class="meta-pill"><span class="i-en">From install to interaction</span><span class="i-zh">从安装到交互</span></span>
+      </div>
+
+      <p><span class="i-en">This guide explains the full MobileClaw setup path from start to finish. If you want to move beyond simply installing the app and actually get it working in your own environment, this is the page to follow.</span><span class="i-zh">这篇文章会完整说明 MobileClaw 从下载安装到真正可用的全过程。如果你不只是想装上 App，而是希望把它真正跑起来，这一页就是完整参考。</span></p>
+
+      <h2><span class="i-en">1. Download the app</span><span class="i-zh">1. 下载 App</span></h2>
+      <p><span class="i-en">Start from the official MobileClaw homepage and download the Android installation package. The homepage provides the current `MobileClaw-release.apk` file for direct download.</span><span class="i-zh">先从 MobileClaw 官方主页下载 Android 安装包。首页提供当前可直接下载的 `MobileClaw-release.apk` 文件。</span></p>
+      <p><span class="i-en">It is recommended to download it directly on the Android device you plan to use, so the following installation steps are simpler.</span><span class="i-zh">建议直接在目标 Android 设备上下载，这样后续安装步骤会更简单。</span></p>
+
+      <h2><span class="i-en">2. Install the APK</span><span class="i-zh">2. 安装 APK</span></h2>
+      <p><span class="i-en">After the file finishes downloading, open it from the notification panel, browser download manager, or file manager. If Android warns you that installation from this source is not yet allowed, enable it for the current browser or file manager and continue.</span><span class="i-zh">下载完成后，可以从通知栏、浏览器下载管理器或文件管理器中打开它。如果 Android 提示当前来源暂不允许安装，请为当前浏览器或文件管理器开启安装权限，然后继续。</span></p>
+      <p><span class="i-en">After installation completes, open MobileClaw normally.</span><span class="i-zh">安装完成后，正常打开 MobileClaw 即可。</span></p>
+
+      <h2><span class="i-en">3. Configure model endpoints</span><span class="i-zh">3. 配置模型接口</span></h2>
+      <p><span class="i-en">MobileClaw typically needs model services for planning and screen-related reasoning. In practice, this means you need to prepare compatible model endpoints and fill in the required connection fields such as URL, key, and model name.</span><span class="i-zh">MobileClaw 通常需要模型服务来完成规划和界面相关推理。实际操作中，你需要准备兼容的模型接口，并填写必要的连接信息，例如 URL、Key 和模型名称。</span></p>
+      <ul>
+        <li><span class="i-en">Use a stable provider with good response quality.</span><span class="i-zh">优先选择稳定、响应质量较好的模型服务。</span></li>
+        <li><span class="i-en">Confirm the model is suitable for your language and workflow.</span><span class="i-zh">确认所用模型适合你的语言环境和工作流。</span></li>
+        <li><span class="i-en">Check the configuration twice before launch to avoid authentication errors.</span><span class="i-zh">启动前再次检查配置，避免认证失败或请求错误。</span></li>
+      </ul>
+
+      <h2><span class="i-en">4. Configure chat channels</span><span class="i-zh">4. 配置聊天接口</span></h2>
+      <p><span class="i-en">If you want to talk to MobileClaw through chat tools, you need to configure your preferred channel, such as Telegram, Weixin, Zulip, Lark, or other supported integrations.</span><span class="i-zh">如果你希望通过聊天工具与 MobileClaw 交互，就需要配置你偏好的聊天渠道，例如 Telegram、微信、Zulip、飞书或其他支持的接入方式。</span></p>
+      <p><span class="i-en">This step usually includes preparing the corresponding bot or integration credentials, then filling those values into the MobileClaw configuration.</span><span class="i-zh">这一步通常包括：准备对应机器人的接入凭据，然后把这些值填写到 MobileClaw 的配置中。</span></p>
+
+      <h2><span class="i-en">5. Grant required permissions</span><span class="i-zh">5. 授予必要权限</span></h2>
+      <p><span class="i-en">To operate apps on your phone, MobileClaw may require permissions such as Accessibility, notification access, or screen-related capabilities. Without these permissions, many workflows cannot run correctly.</span><span class="i-zh">为了在手机上操作应用，MobileClaw 可能需要无障碍、通知访问或与屏幕相关的权限。没有这些权限时，很多工作流将无法正确运行。</span></p>
+      <p><span class="i-en">Grant only what is necessary, and understand what each permission allows before enabling it.</span><span class="i-zh">只开启必要权限，并在开启前了解每项权限的实际作用。</span></p>
+
+      <h2><span class="i-en">6. Set the role with `profile.md`</span><span class="i-zh">6. 通过 `profile.md` 设定角色</span></h2>
+      <p><span class="i-en">`profile.md` is where you define the role, style, and default behavioral expectations for your MobileClaw instance. You can think of it as the personality and working guide for the agent.</span><span class="i-zh">`profile.md` 是你为 MobileClaw 设定角色、风格和默认行为预期的地方。你可以把它理解为这个智能体的人设说明和工作准则。</span></p>
+      <ul>
+        <li><span class="i-en">Describe what the agent should help with.</span><span class="i-zh">说明智能体主要帮助你做什么。</span></li>
+        <li><span class="i-en">Describe the preferred tone and response style.</span><span class="i-zh">说明它应当采用什么语气与回应方式。</span></li>
+        <li><span class="i-en">Add boundaries, cautions, or workflow preferences if needed.</span><span class="i-zh">如有需要，也可以补充边界要求、注意事项或工作偏好。</span></li>
+      </ul>
+
+      <h2><span class="i-en">7. Launch MobileClaw</span><span class="i-zh">7. 启动 MobileClaw</span></h2>
+      <p><span class="i-en">Once app installation, model configuration, chat channel settings, permissions, and role setup are ready, you can launch MobileClaw into its normal working state.</span><span class="i-zh">当 App 安装、模型接口、聊天渠道、权限和角色设定都准备好之后，就可以让 MobileClaw 进入正常工作状态。</span></p>
+      <p><span class="i-en">At this stage, your main goal is to confirm that the app can stay active, connect to its configured services, and respond normally.</span><span class="i-zh">这个阶段的重点是确认：应用能够保持运行、连接成功、并能够正常响应。</span></p>
+
+      <h2><span class="i-en">8. Start interacting</span><span class="i-zh">8. 开始交互</span></h2>
+      <p><span class="i-en">After launch, interact with MobileClaw through the configured interface. This may be inside the app itself or through the chat channel you enabled earlier.</span><span class="i-zh">启动后，你就可以通过配置好的入口与 MobileClaw 交互。这可以是 App 内部，也可以是前面配置好的聊天渠道。</span></p>
+      <p><span class="i-en">Start with simple tasks first. For example, ask it to describe the current screen, confirm a basic action, or perform a small workflow before moving to more complex automation.</span><span class="i-zh">建议先从简单任务开始，例如让它描述当前屏幕、确认一个基础操作，或执行一个简短流程，再逐步尝试更复杂的自动化。</span></p>
+
+      <h2><span class="i-en">A recommended order of operations</span><span class="i-zh">推荐的整体顺序</span></h2>
+      <ol>
+        <li><span class="i-en">Download the app</span><span class="i-zh">下载 App</span></li>
+        <li><span class="i-en">Install the APK</span><span class="i-zh">安装 APK</span></li>
+        <li><span class="i-en">Configure model endpoints</span><span class="i-zh">配置模型接口</span></li>
+        <li><span class="i-en">Configure chat channels</span><span class="i-zh">配置聊天接口</span></li>
+        <li><span class="i-en">Grant required permissions</span><span class="i-zh">授予必要权限</span></li>
+        <li><span class="i-en">Set up `profile.md`</span><span class="i-zh">设定 `profile.md`</span></li>
+        <li><span class="i-en">Launch the app</span><span class="i-zh">启动应用</span></li>
+        <li><span class="i-en">Begin interaction and verify behavior</span><span class="i-zh">开始交互并验证行为</span></li>
+      </ol>
+
+      <h2><span class="i-en">Final advice</span><span class="i-zh">最后的建议</span></h2>
+      <p><span class="i-en">Use a dedicated secondary phone, keep your accounts separated, and test in a controlled environment first. MobileClaw becomes much easier to manage when you build the setup step by step instead of enabling everything at once.</span><span class="i-zh">建议使用专用备用机、保持账号隔离，并先在受控环境中测试。相比一开始就全部打开，按步骤逐步完成配置，会让 MobileClaw 更容易理解、管理和排查问题。</span></p>
+    </article>
+  </main>
+
+  <footer class="footer">
+    <div class="wrap footer-inner">
+      <span class="i-en">MobileClaw · Setup Workflow</span>
+      <span class="i-zh">MobileClaw · 安装配置流程</span>
+    </div>
+  </footer>
+
+  <script src="../script.js"></script>
+</body>
+</html>

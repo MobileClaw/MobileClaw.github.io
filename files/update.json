@@ -1,0 +1,9 @@
+{
+  "versionCode": 21,
+  "versionName": "0.3.2",
+  "apkUrl": "https://mobileclaw.github.io/files/MobileClaw-release.apk",
+  "releaseNotes": "包含了Telegram、Zulip等多个聊天接口。",
+  "force": false,
+  "publishedAt": "2026-03-23T10:00:00Z",
+  "minSupportedVersionCode": 18
+}

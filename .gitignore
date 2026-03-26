@@ -1,0 +1,20 @@
+# macOS / Windows
+.DS_Store
+Thumbs.db
+
+# Editor files
+.idea/
+.vscode/
+*.swp
+*.swo
+*~
+
+# Logs
+*.log
+
+# Local build / release artifacts
+files/*.apk
+
+# Optional local metadata
+.env
+.env.*
