@@ -1,9 +1,9 @@
 {
-  "versionCode": 21,
-  "versionName": "0.3.2",
+  "versionCode": 33,
+  "versionName": "0.3.3",
   "apkUrl": "https://github.com/MobileClaw/MobileClaw/releases/latest/download/MobileClaw.apk",
-  "releaseNotes": "Integrated chat channels including Telegram, Zulip",
+  "releaseNotes": "Support loading config via QR code; Support auto update.",
   "force": false,
-  "publishedAt": "2026-03-23T10:00:00Z",
-  "minSupportedVersionCode": 18
+  "publishedAt": "2026-03-26",
+  "minSupportedVersionCode": 30
 }
