@@ -220,6 +220,11 @@ h3 {
   transition: transform 180ms ease, box-shadow 180ms ease, border-color 180ms ease, background-color 180ms ease;
 }
 
+button.btn {
+  font: inherit;
+  cursor: pointer;
+}
+
 .btn:hover {
   transform: translateY(-1px);
   box-shadow: 0 10px 24px rgba(38, 94, 180, 0.1);
@@ -320,6 +325,98 @@ h3 {
   display: block;
   margin-bottom: 8px;
   color: var(--text);
+}
+
+.modal-backdrop {
+  position: fixed;
+  inset: 0;
+  display: grid;
+  place-items: center;
+  padding: 20px;
+  background: rgba(14, 27, 48, 0.42);
+  backdrop-filter: blur(10px);
+  opacity: 0;
+  visibility: hidden;
+  pointer-events: none;
+  transition: opacity 180ms ease, visibility 180ms ease;
+  z-index: 40;
+}
+
+.modal-backdrop.is-open {
+  opacity: 1;
+  visibility: visible;
+  pointer-events: auto;
+}
+
+.download-modal {
+  position: relative;
+  width: min(100%, 440px);
+  padding: 28px;
+  border-radius: 28px;
+  background: rgba(255, 255, 255, 0.95);
+  border: 1px solid rgba(205, 221, 243, 0.9);
+  box-shadow: 0 28px 60px rgba(24, 55, 103, 0.18);
+  text-align: center;
+}
+
+.download-modal h2 {
+  margin-top: 14px;
+  font-size: clamp(1.8rem, 4vw, 2.4rem);
+  line-height: 1.08;
+}
+
+.modal-lead {
+  margin-top: 12px;
+}
+
+.modal-close {
+  position: absolute;
+  top: 14px;
+  right: 14px;
+  width: 38px;
+  height: 38px;
+  border: 0;
+  border-radius: 50%;
+  background: rgba(238, 245, 255, 0.92);
+  color: var(--text-soft);
+  font-size: 1.4rem;
+  line-height: 1;
+  cursor: pointer;
+}
+
+.qr-shell {
+  display: grid;
+  place-items: center;
+  margin: 22px auto 0;
+}
+
+.qr-code {
+  width: 224px;
+  min-height: 224px;
+  padding: 12px;
+  border-radius: 20px;
+  background: #fff;
+  border: 1px solid var(--line);
+  box-shadow: inset 0 0 0 1px rgba(255,255,255,0.8);
+}
+
+.qr-code img,
+.qr-code canvas {
+  display: block;
+  width: 200px;
+  height: 200px;
+}
+
+.qr-url {
+  margin: 14px 0 0;
+  color: var(--text-mute);
+  font-size: 0.85rem;
+  word-break: break-all;
+}
+
+.modal-download-link {
+  margin-top: 18px;
+  width: 100%;
 }
 
 .section {
@@ -547,6 +644,7 @@ h3 {
   .reveal-delay-2,
   .nav-links a,
   .lang-btn,
+  .modal-backdrop,
   .btn {
     transition: none;
   }
