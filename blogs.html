@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>MobileClaw Blogs</title>
+  <meta name="description" content="MobileClaw documentation and blog articles.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body class="en">
+  <div class="bg-orb bg-orb-a" aria-hidden="true"></div>
+  <div class="bg-orb bg-orb-b" aria-hidden="true"></div>
+
+  <nav class="nav">
+    <div class="wrap nav-inner">
+      <a class="site-title" href="index.html">MobileClaw</a>
+      <div class="nav-links">
+        <a href="index.html"><span class="i-en">Home</span><span class="i-zh">首页</span></a>
+        <a class="is-active" href="blogs.html"><span class="i-en">Blogs</span><span class="i-zh">文档</span></a>
+        <a href="https://github.com/MobileLLM/MobileClaw" target="_blank" rel="noreferrer">GitHub</a>
+      </div>
+      <button class="lang-btn" id="langToggle" type="button" aria-label="Toggle language">🌐 中文</button>
+    </div>
+  </nav>
+
+  <main class="section">
+    <div class="wrap">
+      <section class="section-head reveal">
+        <h2><span class="i-en">Technical Blogs</span><span class="i-zh">技术文档</span></h2>
+        <p class="lead">
+          <span class="i-en">Technical notes, setup walkthroughs, and safety guidance for using MobileClaw.</span>
+          <span class="i-zh">关于 MobileClaw 的技术说明、安装配置流程与安全使用指南。</span>
+        </p>
+      </section>
+      <section class="blog-list-card reveal reveal-delay-1">
+        <div class="blog-list">
+          <article class="blog-list-item card">
+            <p class="eyebrow"><span class="i-en">Setup Guide</span><span class="i-zh">完整流程</span></p>
+            <h3><span class="i-en">MobileClaw App Installation and Configuration Workflow</span><span class="i-zh">MobileClaw App 安装配置流程</span></h3>
+            <p><span class="i-en">A complete walkthrough from downloading the app to configuring models, chat channels, permissions, role settings, launch, and interaction.</span><span class="i-zh">从下载 App 到配置模型、聊天接口、权限、角色、启动与交互的完整说明。</span></p>
+            <a class="blog-link" href="blogs/setup-workflow.html"><span class="i-en">Read article</span><span class="i-zh">阅读文章</span></a>
+          </article>
+          <article class="blog-list-item card">
+            <p class="eyebrow"><span class="i-en">Installation</span><span class="i-zh">安装指南</span></p>
+            <h3><span class="i-en">How to Install an APK on an Android Phone</span><span class="i-zh">如何在 Android 手机上安装 APK</span></h3>
+            <p><span class="i-en">A step-by-step guide for downloading, allowing installation, and completing the first launch.</span><span class="i-zh">从下载安装包、允许安装，到首次启动应用的完整步骤说明。</span></p>
+            <a class="blog-link" href="blogs/install-apk.html"><span class="i-en">Read article</span><span class="i-zh">阅读文章</span></a>
+          </article>
+          <article class="blog-list-item card">
+            <p class="eyebrow"><span class="i-en">Safety</span><span class="i-zh">安全说明</span></p>
+            <h3><span class="i-en">Understanding Agent Safety Risks</span><span class="i-zh">了解智能体安全风险</span></h3>
+            <p><span class="i-en">A plain-language overview of the main risks when an agent is allowed to control a device.</span><span class="i-zh">用直白的方式解释：当智能体被允许控制设备时，主要会出现哪些风险。</span></p>
+            <a class="blog-link" href="blogs/agent-safety.html"><span class="i-en">Read article</span><span class="i-zh">阅读文章</span></a>
+          </article>
+        </div>
+      </section>
+    </div>
+  </main>
+
+  <footer class="footer">
+    <div class="wrap footer-inner">
+      <span class="i-en">MobileClaw · Documentation</span>
+      <span class="i-zh">MobileClaw · 文档</span>
+    </div>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+</html>

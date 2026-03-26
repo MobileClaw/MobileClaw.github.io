@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Understanding Agent Safety Risks - MobileClaw</title>
+  <meta name="description" content="Understand the main safety risks when an agent operates a device.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../style.css">
+</head>
+<body class="en">
+  <div class="bg-orb bg-orb-a" aria-hidden="true"></div>
+  <div class="bg-orb bg-orb-b" aria-hidden="true"></div>
+
+  <nav class="nav">
+    <div class="wrap nav-inner">
+      <a class="site-title" href="../index.html">MobileClaw</a>
+      <div class="nav-links">
+        <a href="../index.html"><span class="i-en">Home</span><span class="i-zh">首页</span></a>
+        <a class="is-active" href="../blogs.html"><span class="i-en">Blogs</span><span class="i-zh">文档</span></a>
+        <a href="https://github.com/MobileLLM/MobileClaw" target="_blank" rel="noreferrer">GitHub</a>
+      </div>
+      <button class="lang-btn" id="langToggle" type="button" aria-label="Toggle language">🌐 中文</button>
+    </div>
+  </nav>
+
+  <main class="article-page">
+    <article class="article-shell reveal">
+      <p class="eyebrow"><span class="i-en">Safety</span><span class="i-zh">安全说明</span></p>
+      <h1><span class="i-en">Understanding Agent Safety Risks</span><span class="i-zh">了解智能体安全风险</span></h1>
+      <div class="article-meta">
+        <span class="meta-pill"><span class="i-en">Important before first use</span><span class="i-zh">首次使用前必读</span></span>
+        <span class="meta-pill"><span class="i-en">Plain-language overview</span><span class="i-zh">通俗说明</span></span>
+      </div>
+
+      <p><span class="i-en">When an agent can operate a phone, it may read what appears on screen, tap buttons, open apps, and trigger workflows. That is useful, but it also means mistakes or misuse can have real consequences.</span><span class="i-zh">当智能体可以操作手机时，它就可能读取屏幕内容、点击按钮、打开应用并触发工作流。这很有用，但也意味着一旦出错或被滥用，就可能产生真实后果。</span></p>
+
+      <h2><span class="i-en">1. Account and privacy risk</span><span class="i-zh">1. 账号与隐私风险</span></h2>
+      <p><span class="i-en">If the device is logged into chat tools, social apps, or cloud services, an agent may accidentally expose sensitive content, send the wrong message, or interact with the wrong account.</span><span class="i-zh">如果设备已经登录了聊天工具、社交应用或云服务，智能体就可能误读敏感内容、发错消息，或者在错误的账号下执行操作。</span></p>
+
+      <h2><span class="i-en">2. Permission risk</span><span class="i-zh">2. 权限风险</span></h2>
+      <p><span class="i-en">Accessibility, screen reading, notification access, and similar permissions are powerful. If you enable them casually, you may give the app more control than you intended.</span><span class="i-zh">无障碍、读屏、通知访问等权限都非常强大。如果你在没有充分理解的情况下开启这些权限，可能会让应用获得超出你预期的控制能力。</span></p>
+
+      <h2><span class="i-en">3. Automation mistakes</span><span class="i-zh">3. 自动化误操作</span></h2>
+      <p><span class="i-en">Even a well-designed agent can make mistakes. It may tap the wrong UI element, misunderstand a screen state, repeat an action, or continue a workflow longer than you expected.</span><span class="i-zh">即使是设计良好的智能体，也可能出现误操作。它可能点错控件、误判页面状态、重复执行动作，或者比你预期中运行得更久。</span></p>
+
+      <h2><span class="i-en">4. External service and content risk</span><span class="i-zh">4. 外部服务与内容风险</span></h2>
+      <p><span class="i-en">If the agent interacts with websites, messages, or third-party services, it may encounter malicious content, fraudulent prompts, or unreliable information. A device-side agent is not automatically safe just because it runs locally.</span><span class="i-zh">如果智能体会接触网页、消息或第三方服务，它也可能遇到恶意内容、欺骗性提示或不可靠信息。即使在本地设备上运行，也不代表天然安全。</span></p>
+
+      <h2><span class="i-en">How to reduce risk</span><span class="i-zh">如何降低风险</span></h2>
+      <ul>
+        <li><span class="i-en">Use a dedicated secondary phone instead of your primary device.</span><span class="i-zh">优先使用备用设备，而不是主力手机。</span></li>
+        <li><span class="i-en">Use separate app accounts for testing and daily automation.</span><span class="i-zh">使用独立账号来进行测试与日常自动化。</span></li>
+        <li><span class="i-en">Enable only the permissions that are truly required.</span><span class="i-zh">只开启真正需要的权限。</span></li>
+        <li><span class="i-en">Review workflows carefully before letting the agent run unattended.</span><span class="i-zh">在让智能体脱离人工监督前，先仔细检查工作流。</span></li>
+        <li><span class="i-en">Avoid spam, abuse, or any behavior that could affect other people or services.</span><span class="i-zh">避免任何骚扰、滥用或可能影响他人和服务的行为。</span></li>
+      </ul>
+
+      <h2><span class="i-en">A good default mindset</span><span class="i-zh">一个稳妥的默认心态</span></h2>
+      <p><span class="i-en">Treat MobileClaw like a powerful experimental tool, not a harmless toy. Start small, keep the environment controlled, and expand only after you understand what the agent can do on your device.</span><span class="i-zh">可以把 MobileClaw 当作一个强大的实验性工具，而不是无害的小玩具。先从小范围、受控环境开始，确认你真正理解它在设备上能做什么，再逐步扩大使用范围。</span></p>
+    </article>
+  </main>
+
+  <footer class="footer">
+    <div class="wrap footer-inner">
+      <span class="i-en">MobileClaw · Safety Guide</span>
+      <span class="i-zh">MobileClaw · 安全说明</span>
+    </div>
+  </footer>
+
+  <script src="../script.js"></script>
+</body>
+</html>

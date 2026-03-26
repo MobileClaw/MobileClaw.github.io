@@ -1,0 +1,198 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>MobileClaw - Autonomous Mobile Agent for Android</title>
+  <meta name="description" content="MobileClaw brings autonomous agents to Android phones through human-like GUI interaction. Download the app, configure it, and run practical mobile automation.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body class="en">
+  <div class="bg-orb bg-orb-a" aria-hidden="true"></div>
+  <div class="bg-orb bg-orb-b" aria-hidden="true"></div>
+
+  <nav class="nav">
+    <div class="wrap nav-inner">
+      <a class="site-title" href="index.html">MobileClaw</a>
+      <div class="nav-links">
+        <a href="#overview"><span class="i-en">Overview</span><span class="i-zh">概览</span></a>
+        <a href="#features"><span class="i-en">Features</span><span class="i-zh">特性</span></a>
+        <a href="#quick-start"><span class="i-en">Quick Start</span><span class="i-zh">快速开始</span></a>
+        <a href="blogs.html"><span class="i-en">Blogs</span><span class="i-zh">文档</span></a>
+        <a href="https://github.com/MobileLLM/MobileClaw" target="_blank" rel="noreferrer">GitHub</a>
+      </div>
+      <button class="lang-btn" id="langToggle" type="button" aria-label="Toggle language">🌐 中文</button>
+    </div>
+  </nav>
+
+  <header class="hero" id="overview">
+    <div class="wrap hero-shell reveal">
+      <section class="hero-copy">
+        <h1>
+          <span class="i-en">Autonomous mobile agent, now as an app.</span>
+          <span class="i-zh">手机里的自主智能体，可直接安装 App 使用</span>
+        </h1>
+        <p class="hero-lead">
+          <span class="i-en">MobileClaw turns an Android device into an autonomous agent runtime that operates through vision and GUI interaction, making agents more practical, understandable, and reliable.</span>
+          <span class="i-zh">MobileClaw 可将 Android 设备变成自主智能体运行环境，通过视觉与 GUI 交互完成任务，让智能体更实用、更直观、也更稳定。</span>
+        </p>
+        <div class="hero-actions">
+          <a class="btn primary" href="files/MobileClaw-release.apk">
+            <span class="i-en">Download App</span>
+            <span class="i-zh">下载 App</span>
+          </a>
+          <a class="btn secondary" href="#quick-start">
+            <span class="i-en">Quick Start</span>
+            <span class="i-zh">快速开始</span>
+          </a>
+          <a class="btn ghost" href="https://github.com/MobileLLM/MobileClaw" target="_blank" rel="noreferrer">GitHub</a>
+        </div>
+        <div class="hero-note">
+          <strong><span class="i-en">Safety Notice</span><span class="i-zh">安全提醒</span></strong>
+          <span class="i-en">Install the Android app on a dedicated secondary phone instead of your primary device.</span>
+          <span class="i-zh">建议将 Android App 安装在专用备用机上，而不是主力设备。</span>
+          <span class="i-en">Before use, make sure you understand the security risks involved when agents operate devices on your behalf.</span>
+          <span class="i-zh">使用前请确保你了解智能体操作设备可能存在的安全风险。</span>
+        </div>
+      </section>
+
+      <section class="hero-visual reveal reveal-delay-1">
+        <div class="media-card">
+          <div class="media-head">
+            <span></span><span></span><span></span>
+          </div>
+          <div class="visual-frame">
+            <img src="res/mobileclaw_demo_5x.gif" alt="MobileClaw demo" loading="lazy">
+          </div>
+        </div>
+        <div style="text-align: center">
+          <a class="inline-link center" href="#">
+            <span class="i-en"> ▶️ Watch more demos of MobileClaw </span>
+            <span class="i-zh"> ▶️ 更多 MobileClaw 运行演示 </span>
+          </a>
+        </div>
+      </section>
+    </div>
+  </header>
+
+  <main>
+    <section class="section" id="features">
+      <div class="wrap">
+        <div class="section-head reveal">
+          <p class="eyebrow"><span class="i-en">Why MobileClaw</span><span class="i-zh">MobileClaw 核心特色</span></p>
+          <h2><span class="i-en">Natively built for real mobile workflows</span><span class="i-zh">针对真实移动场景原生设计</span></h2>
+          <p class="lead">
+            <span class="i-en">MobileClaw focuses on practical phone-side automation: direct app installation, GUI-based execution, and fast onboarding for daily use.</span>
+            <span class="i-zh">MobileClaw 聚焦于实用的手机端自动化：可直接安装的 App、基于 GUI 的执行方式，以及面向日常使用的快速上手体验。</span>
+          </p>
+        </div>
+
+        <div class="feature-grid">
+          <article class="feature-card reveal">
+            <div class="feature-index">01</div>
+            <h3><span class="i-en">Runs directly on Android</span><span class="i-zh">直接面向 Android 设备</span></h3>
+            <p><span class="i-en">Turn a spare Android phone into an agent runtime for daily automation tasks.</span><span class="i-zh">把备用 Android 手机变成可长期运行的智能体终端。</span></p>
+          </article>
+          <article class="feature-card reveal reveal-delay-1">
+            <div class="feature-index">02</div>
+            <h3><span class="i-en">Uses GUI like a human</span><span class="i-zh">像人一样使用 GUI</span></h3>
+            <p><span class="i-en">MobileClaw sees screens, taps controls, and navigates apps the way a person would.</span><span class="i-zh">MobileClaw 通过识别屏幕、点击控件、切换页面来像人一样操作应用。</span></p>
+          </article>
+          <article class="feature-card reveal reveal-delay-2">
+            <div class="feature-index">03</div>
+            <h3><span class="i-en">Easy to reason about</span><span class="i-zh">更容易理解与维护</span></h3>
+            <p><span class="i-en">Readable memory files and familiar chat channels keep the system transparent.</span><span class="i-zh">可读的记忆文件与熟悉的聊天入口让系统更透明、更可控。</span></p>
+          </article>
+          <article class="feature-card reveal">
+            <div class="feature-index">04</div>
+            <h3><span class="i-en">Simple model configuration</span><span class="i-zh">模型配置简单直接</span></h3>
+            <p><span class="i-en">Configure planning and GUI vision models through OpenAI-compatible endpoints.</span><span class="i-zh">通过兼容 OpenAI API 的接口配置规划模型与 GUI 视觉模型。</span></p>
+          </article>
+          <article class="feature-card reveal reveal-delay-1">
+            <div class="feature-index">05</div>
+            <h3><span class="i-en">Connects to common chat tools</span><span class="i-zh">连接常用聊天工具</span></h3>
+            <p><span class="i-en">Work with the agent through Telegram, Lark, Discord, Slack, Weixin, and more.</span><span class="i-zh">可通过 Telegram、飞书、Discord、Slack、微信等渠道与智能体协作。</span></p>
+          </article>
+          <article class="feature-card reveal reveal-delay-2">
+            <div class="feature-index">06</div>
+            <h3><span class="i-en">Designed for practical deployment</span><span class="i-zh">为真实部署准备</span></h3>
+            <p><span class="i-en">A dedicated device, app install flow, and phone-side permissions make onboarding straightforward.</span><span class="i-zh">围绕专用设备、App 安装流程和手机端权限设置进行设计，上手更顺畅。</span></p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="section section-soft" id="quick-start">
+      <div class="wrap">
+        <div class="section-head reveal">
+          <p class="eyebrow"><span class="i-en">Quick Start</span><span class="i-zh">快速开始</span></p>
+          <h2><span class="i-en">Install the app and get MobileClaw running in minutes</span><span class="i-zh">通过安装 App 的方式，在几分钟内开始使用 MobileClaw</span></h2>
+          <p class="lead">
+            <span class="i-en">For most users, the app is the main entry point. Download the APK, complete the required configurations on your Android phone, and then your agent is ready for use.</span>
+            <span class="i-zh">对于大多数用户来说，App 就是主要入口。下载 APK、在 Android 手机上完成必要设置，即可开始使用你的专属助理。</span>
+          </p>
+        </div>
+
+        <div class="quick-grid">
+          <article class="quick-panel reveal">
+            <h3><span class="i-en">1. Download & install the APK</span><span class="i-zh">1. 下载并安装 APK</span></h3>
+            <p><span class="i-en">Get the latest Android build from this site and install it on a dedicated Android device.</span><span class="i-zh">从本站下载最新 Android 安装包，并安装到专用 Android 设备上。</span></p>
+            <a class="inline-link" href="files/MobileClaw-release.apk">
+              <span class="i-en">Download MobileClaw App</span>
+              <span class="i-zh">下载 MobileClaw 应用</span>
+            </a>
+          </article>
+          <article class="quick-panel reveal reveal-delay-2">
+            <h3><span class="i-en">2. Configure models & chat</span><span class="i-zh">2. 配置模型和聊天接口</span></h3>
+            <p><span class="i-en">Set up your model endpoints and preferred chat channels (Telegram, Weixin, Zulip, Lark, etc.).</span><span class="i-zh">配置模型接口与偏好的聊天渠道。支持主流的模型接口和聊天方式，如 Telegram、Zulip、微信、飞书等。</span></p>
+<!--            <a class="inline-link" href="https://wisewk.com/" target="_blank" rel="noreferrer">-->
+<!--              <span class="i-en">Recommend: Wisewk API. Better experience with lower cost.</span>-->
+<!--              <span class="i-zh">推荐使用集成化的 Wisewk API。更低的价格，更好的体验。</span>-->
+<!--            </a>-->
+          </article>
+          <article class="quick-panel reveal reveal-delay-1">
+            <h3><span class="i-en">3. Grant required permissions</span><span class="i-zh">3. 开启权限并启动</span></h3>
+            <p><span class="i-en">(Optionally) Enable Accessibility and Screen Capture permissions so the agent can interact with apps.</span><span class="i-zh">（可选）开启无障碍能力和读屏相关权限，让智能体能够正确接管应用交互。</span></p>
+          </article>
+        </div>
+        <p><span class="i-en">After configuration, click "Start" and start chatting with your agent.</span><span class="i-zh">配置完成后，点击启动，开始与你的智能体聊天吧！</span></p>
+        <p><span class="i-en">More information:</span><span class="i-zh">更多信息：</span>
+        <a class="inline-link" href="blogs/blog-mobileclaw-setup-workflow.html">
+          <span class="i-zh">详细配置流程</span>
+          <span class="i-en">Detailed configuration process.</span>
+        </a>
+        </p>
+      </div>
+    </section>
+
+    <section class="section section-soft" id="developer">
+      <div class="wrap">
+        <article class="section-head reveal">
+          <p class="eyebrow"><span class="i-en">For Developers</span><span class="i-zh">开发者版本</span></p>
+          <h2><span class="i-en">Need the repo-based setup?</span><span class="i-zh">需要仓库版部署方式？</span></h2>
+          <p class="lead">
+            <span class="i-en">The developer-oriented installation, editable package setup, and detailed configuration examples are kept in the GitHub README.</span>
+            <span class="i-zh">面向开发者的仓库安装方式、可编辑包部署流程，以及更详细的配置示例，统一保留在 GitHub README 中。</span>
+          </p>
+          <a class="inline-link" href="https://github.com/MobileLLM/MobileClaw/blob/main/README.md" target="_blank" rel="noreferrer">
+            <span class="i-en">Open in GitHub</span>
+            <span class="i-zh">在 GitHub 中打开</span>
+          </a>
+        </article>
+      </div>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <div class="wrap footer-inner">
+      <span class="i-en">MobileClaw · Autonomous Mobile Agent for Android</span>
+      <span class="i-zh">MobileClaw · 面向 Android 的自主移动智能体</span>
+    </div>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+</html>
