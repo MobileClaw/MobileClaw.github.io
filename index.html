@@ -9,6 +9,7 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="style.css">
+  <script src="https://cdn.bootcdn.net/ajax/libs/qrcodejs/1.0.0/qrcode.min.js"></script>
 </head>
 <body class="en">
   <div class="bg-orb bg-orb-a" aria-hidden="true"></div>
@@ -40,10 +41,10 @@
           <span class="i-zh">MobileClaw 可将 Android 设备变成自主智能体运行环境，通过视觉与 GUI 交互完成任务，让智能体更实用、更直观、也更稳定。</span>
         </p>
         <div class="hero-actions">
-          <a class="btn primary" href="files/MobileClaw-release.apk">
+          <button class="btn primary" type="button" id="downloadAppButton" data-download-trigger="true">
             <span class="i-en">Download App</span>
             <span class="i-zh">下载 App</span>
-          </a>
+          </button>
           <a class="btn secondary" href="#quick-start">
             <span class="i-en">Quick Start</span>
             <span class="i-zh">快速开始</span>
@@ -140,7 +141,7 @@
           <article class="quick-panel reveal">
             <h3><span class="i-en">1. Download & install the APK</span><span class="i-zh">1. 下载并安装 APK</span></h3>
             <p><span class="i-en">Get the latest Android build from this site and install it on a dedicated Android device.</span><span class="i-zh">从本站下载最新 Android 安装包，并安装到专用 Android 设备上。</span></p>
-            <a class="inline-link" href="files/MobileClaw-release.apk">
+            <a class="inline-link" href="https://github.com/MobileClaw/MobileClaw/releases/latest/download/MobileClaw.apk" data-download-trigger="true">
               <span class="i-en">Download MobileClaw App</span>
               <span class="i-zh">下载 MobileClaw 应用</span>
             </a>
@@ -160,7 +161,7 @@
         </div>
         <p><span class="i-en">After configuration, click "Start" and start chatting with your agent.</span><span class="i-zh">配置完成后，点击启动，开始与你的智能体聊天吧！</span></p>
         <p><span class="i-en">More information:</span><span class="i-zh">更多信息：</span>
-        <a class="inline-link" href="blogs/blog-mobileclaw-setup-workflow.html">
+        <a class="inline-link" href="blogs/setup-workflow.html">
           <span class="i-zh">详细配置流程</span>
           <span class="i-en">Detailed configuration process.</span>
         </a>
@@ -185,6 +186,29 @@
       </div>
     </section>
   </main>
+
+  <div class="modal-backdrop" id="downloadModal" aria-hidden="true">
+    <div class="download-modal" role="dialog" aria-modal="true" aria-labelledby="downloadModalTitle">
+      <button class="modal-close" id="downloadModalClose" type="button" aria-label="Close">×</button>
+      <p class="eyebrow"><span class="i-en">Download App</span><span class="i-zh">下载 App</span></p>
+      <h2 id="downloadModalTitle">
+        <span class="i-en">Scan with your phone to download MobileClaw</span>
+        <span class="i-zh">用手机扫码下载 MobileClaw</span>
+      </h2>
+      <p class="lead modal-lead">
+        <span class="i-en">Open your phone camera or QR app, then scan the code below to download the latest Android package.</span>
+        <span class="i-zh">打开手机相机或扫码工具，扫描下方二维码即可下载最新 Android 安装包。</span>
+      </p>
+      <div class="qr-shell">
+        <div class="qr-code" id="downloadQrCode" aria-label="Download QR code"></div>
+      </div>
+      <p class="qr-url" id="downloadQrUrl"></p>
+      <a class="btn secondary modal-download-link" id="directApkLink" href="https://github.com/MobileClaw/MobileClaw/releases/latest/download/MobileClaw.apk">
+        <span class="i-en">Download APK directly to this device</span>
+        <span class="i-zh">直接下载 APK 到当前设备</span>
+      </a>
+    </div>
+  </div>
 
   <footer class="footer">
     <div class="wrap footer-inner">
