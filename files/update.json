@@ -1,9 +1,9 @@
 {
-  "versionCode": 33,
-  "versionName": "0.3.3",
+  "versionCode": 34,
+  "versionName": "0.3.4",
   "apkUrl": "https://github.com/MobileClaw/MobileClaw/releases/latest/download/MobileClaw.apk",
-  "releaseNotes": "Support loading config via QR code; Support auto update.",
+  "releaseNotes": "Support images in chat.",
   "force": false,
-  "publishedAt": "2026-03-26",
+  "publishedAt": "2026-03-29",
   "minSupportedVersionCode": 30
 }
