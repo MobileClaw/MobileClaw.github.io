@@ -54,38 +54,52 @@
             </div>
 
             <div class="field-group" data-provider-block="wisewk">
-              <p><span class="i-en">Wisewk provides an all-in-one API service tailored for agents, with better experience and lower cost.</span><span class="i-zh">Wisewk 提供为智能体定制的体验更佳、价格更低的一站式 API 服务。</span></p>
+              <div class="config-subblock">
+              <p><span class="i-en">Wisewk provides an all-in-one API service tailored for agents, with better experience and lower cost. <a class="link-accent" href="https://wisewk.com" target="_blank" rel="noreferrer">Learn more at wisewk.com</a></span><span class="i-zh">Wisewk 提供为智能体定制的体验更佳、价格更低的一站式 API 服务。<a class="link-accent" href="https://wisewk.com" target="_blank" rel="noreferrer">了解更多：wisewk.com</a></span></p>
               <label class="field-label" for="wisewkKey"><span class="i-en">Wisewk Key</span><span class="i-zh">Wisewk Key</span></label>
               <input class="text-field" id="wisewkKey" name="wisewk_key" type="text" placeholder="wk-...">
+              </div>
             </div>
 
             <div class="field-group" data-provider-block="custom">
-              <div class="toggle-line">
-                <label class="check-line"><input type="checkbox" id="useCustomFm" checked> <span class="i-en">Use Custom FM</span><span class="i-zh">启用自定义基座模型</span></label>
+              <div class="config-subblock">
+                <div class="toggle-line">
+                  <label class="check-line"><input type="checkbox" id="useCustomFm" checked> <span class="i-en">Use Custom FM</span><span class="i-zh">启用自定义基座模型</span></label>
+                </div>
+                <label class="field-label" for="fmUrl"><span class="i-en">Foundation Model Base URL</span><span class="i-zh">基座模型 Base URL</span></label>
+                <input class="text-field" id="fmUrl" name="custom_fm_url" type="text" placeholder="https://api.openai.com/v1/chat/completions">
+                <label class="field-label" for="fmKey"><span class="i-en">Foundation Model API Key</span><span class="i-zh">基座模型 API Key</span></label>
+                <input class="text-field" id="fmKey" name="custom_fm_key" type="text" placeholder="sk-...">
+                <label class="field-label" for="fmName"><span class="i-en">Foundation Model Name</span><span class="i-zh">基座模型名称</span></label>
+                <input class="text-field" id="fmName" name="custom_fm_name" type="text" placeholder="gpt-5.4">
               </div>
-              <label class="field-label" for="fmUrl"><span class="i-en">Foundation Model Base URL</span><span class="i-zh">基座模型 Base URL</span></label>
-              <input class="text-field" id="fmUrl" name="custom_fm_url" type="text" placeholder="https://api.openai.com/v1/chat/completions">
-              <label class="field-label" for="fmKey"><span class="i-en">Foundation Model API Key</span><span class="i-zh">基座模型 API Key</span></label>
-              <input class="text-field" id="fmKey" name="custom_fm_key" type="text" placeholder="sk-...">
-              <label class="field-label" for="fmName"><span class="i-en">Foundation Model Name</span><span class="i-zh">基座模型名称</span></label>
-              <input class="text-field" id="fmName" name="custom_fm_name" type="text" placeholder="gpt-5.4">
 
-              <div class="toggle-line top-gap">
-                <label class="check-line"><input type="checkbox" id="useCustomGuiVlm" checked> <span class="i-en">Use Custom GUI VLM</span><span class="i-zh">启用自定义 GUI 模型</span></label>
+              <div class="config-subblock">
+                <div class="toggle-line">
+                  <label class="check-line"><input type="checkbox" id="useCustomGuiVlm" checked> <span class="i-en">Use Custom GUI VLM</span><span class="i-zh">启用自定义 GUI 模型</span></label>
+                </div>
+                <label class="field-label" for="guiVlmUrl"><span class="i-en">GUI Model Base URL</span><span class="i-zh">GUI模型 Base URL</span></label>
+                <input class="text-field" id="guiVlmUrl" name="custom_gui_vlm_url" type="text" placeholder="https://api.openai.com/v1/chat/completions">
+                <label class="field-label" for="guiVlmKey"><span class="i-en">GUI Model API Key</span><span class="i-zh">GUI模型 API Key</span></label>
+                <input class="text-field" id="guiVlmKey" name="custom_gui_vlm_key" type="text" placeholder="sk-...">
+                <label class="field-label" for="guiVlmName"><span class="i-en">GUI Model Name</span><span class="i-zh">GUI模型名称</span></label>
+                <input class="text-field" id="guiVlmName" name="custom_gui_vlm_name" type="text" placeholder="gpt-5.4">
               </div>
-              <label class="field-label" for="guiVlmUrl"><span class="i-en">GUI Model Base URL</span><span class="i-zh">GUI模型 Base URL</span></label>
-              <input class="text-field" id="guiVlmUrl" name="custom_gui_vlm_url" type="text" placeholder="https://api.openai.com/v1/chat/completions">
-              <label class="field-label" for="guiVlmKey"><span class="i-en">GUI Model API Key</span><span class="i-zh">GUI模型 API Key</span></label>
-              <input class="text-field" id="guiVlmKey" name="custom_gui_vlm_key" type="text" placeholder="sk-...">
-              <label class="field-label" for="guiVlmName"><span class="i-en">GUI Model Name</span><span class="i-zh">GUI模型名称</span></label>
-              <input class="text-field" id="guiVlmName" name="custom_gui_vlm_name" type="text" placeholder="gpt-5.4">
 
-              <div class="toggle-line top-gap">
-                <label class="check-line"><input type="checkbox" id="useWisewkBackup"> <span class="i-en">Use Wisewk as Backup</span><span class="i-zh">使用 Wisewk 作为备选</span></label>
+              <div class="config-subblock">
+                <label class="field-label" for="tavilyApiKey"><span class="i-en">Search API</span><span class="i-zh">Search API</span></label>
+                <label class="field-label field-label-muted" for="tavilyApiKey"><span class="i-en">Tavily API Key — Optional</span><span class="i-zh">Tavily API Key — 可选</span></label>
+                <input class="text-field" id="tavilyApiKey" name="tavily_api_key" type="text" placeholder="tvly-...">
               </div>
-              <div class="field-group backup-fields" id="wisewkBackupBlock">
-                <label class="field-label" for="wisewkBackupKey"><span class="i-en">Wisewk Key</span><span class="i-zh">Wisewk Key</span></label>
-                <input class="text-field" id="wisewkBackupKey" type="text" placeholder="wk-...">
+
+              <div class="config-subblock">
+                <div class="toggle-line">
+                  <label class="check-line"><input type="checkbox" id="useWisewkBackup"> <span class="i-en">Use Wisewk as Backup</span><span class="i-zh">使用 Wisewk 作为备选</span></label>
+                </div>
+                <div class="field-group backup-fields" id="wisewkBackupBlock">
+                  <label class="field-label" for="wisewkBackupKey"><span class="i-en">Wisewk Key</span><span class="i-zh">Wisewk Key</span></label>
+                  <input class="text-field" id="wisewkBackupKey" type="text" placeholder="wk-...">
+                </div>
               </div>
             </div>
           </div>
@@ -100,31 +114,46 @@
             </div>
 
             <div class="field-group channel-fields" data-channel-block="telegram">
-              <label class="field-label" for="telegramToken"><span class="i-en">Telegram Bot Token</span><span class="i-zh">Telegram Bot Token</span></label>
-              <input class="text-field" id="telegramToken" name="chat_telegram_token" type="text" placeholder="123456:ABC...">
+              <div class="config-subblock">
+                <label class="field-label field-label-inline" for="telegramToken">
+                  <span class="i-en">Telegram Bot Token</span><span class="i-zh">Telegram Bot Token</span>
+                  <span class="tooltip-wrap" tabindex="0" aria-label="Telegram Bot Token help">
+                    <span class="tooltip-trigger">?</span>
+                    <span class="tooltip-box">
+                      <span class="i-en">Create it with BotFather: open Telegram → search `@BotFather` → send `/newbot` → set bot name and username → copy the token returned by BotFather.</span>
+                      <span class="i-zh">通过 BotFather 创建：打开 Telegram → 搜索 `@BotFather` → 发送 `/newbot` → 设置机器人名称和用户名 → 复制 BotFather 返回的 token。</span>
+                    </span>
+                  </span>
+                </label>
+                <input class="text-field" id="telegramToken" name="chat_telegram_token" type="text" placeholder="123456:ABC...">
+              </div>
             </div>
 
             <div class="field-group channel-fields" data-channel-block="zulip">
-              <label class="field-label" for="zulipEmail"><span class="i-en">Zulip Bot Email</span><span class="i-zh">Zulip Bot Email</span></label>
-              <input class="text-field" id="zulipEmail" name="chat_zulip_email" type="text" placeholder="bot@example.com">
-              <label class="field-label" for="zulipKey"><span class="i-en">Zulip API Key</span><span class="i-zh">Zulip API Key</span></label>
-              <input class="text-field" id="zulipKey" name="chat_zulip_key" type="text" placeholder="api-key">
-              <label class="field-label" for="zulipSite"><span class="i-en">Zulip Site</span><span class="i-zh">Zulip Site</span></label>
-              <input class="text-field" id="zulipSite" name="chat_zulip_site" type="text" placeholder="https://your-org.zulipchat.com">
+              <div class="config-subblock">
+                <label class="field-label" for="zulipEmail"><span class="i-en">Zulip Bot Email</span><span class="i-zh">Zulip Bot Email</span></label>
+                <input class="text-field" id="zulipEmail" name="chat_zulip_email" type="text" placeholder="bot@example.com">
+                <label class="field-label" for="zulipKey"><span class="i-en">Zulip API Key</span><span class="i-zh">Zulip API Key</span></label>
+                <input class="text-field" id="zulipKey" name="chat_zulip_key" type="text" placeholder="api-key">
+                <label class="field-label" for="zulipSite"><span class="i-en">Zulip Site</span><span class="i-zh">Zulip Site</span></label>
+                <input class="text-field" id="zulipSite" name="chat_zulip_site" type="text" placeholder="https://your-org.zulipchat.com">
+              </div>
             </div>
 
             <div class="field-group channel-fields" data-channel-block="lark">
-              <label class="field-label" for="larkAppId"><span class="i-en">Lark / Feishu App ID</span><span class="i-zh">飞书 / Lark App ID</span></label>
-              <input class="text-field" id="larkAppId" name="chat_lark_app_id" type="text" placeholder="cli_xxx">
-              <label class="field-label" for="larkAppSecret"><span class="i-en">Lark / Feishu App Secret</span><span class="i-zh">飞书 / Lark App Secret</span></label>
-              <input class="text-field" id="larkAppSecret" name="chat_lark_app_secret" type="text" placeholder="secret">
+              <div class="config-subblock">
+                <label class="field-label" for="larkAppId"><span class="i-en">Lark / Feishu App ID</span><span class="i-zh">飞书 / Lark App ID</span></label>
+                <input class="text-field" id="larkAppId" name="chat_lark_app_id" type="text" placeholder="cli_xxx">
+                <label class="field-label" for="larkAppSecret"><span class="i-en">Lark / Feishu App Secret</span><span class="i-zh">飞书 / Lark App Secret</span></label>
+                <input class="text-field" id="larkAppSecret" name="chat_lark_app_secret" type="text" placeholder="secret">
+              </div>
             </div>
 
             <div class="field-group channel-fields" data-channel-block="weixin">
-              <label class="field-label" for="weixinBaseUrl"><span class="i-en">Weixin Base URL (Optional)</span><span class="i-zh">微信 Base URL (可选)</span></label>
-              <input class="text-field" id="weixinBaseUrl" name="chat_weixin_base_url" type="text" placeholder="https://ilinkai.weixin.qq.com">
-              <label class="field-label" for="weixinBotToken"><span class="i-en">Weixin Bot Token (Optional; If not specified, scan with Weixin to bind later)</span><span class="i-zh">微信 Bot Token (可选；如不指定，可以随后微信扫码绑定)</span></label>
-              <input class="text-field" id="weixinBotToken" name="chat_weixin_bot_token" type="text" placeholder="token">
+              <div class="config-subblock">
+                <label class="field-label" for="weixinBotToken"><span class="i-en">Weixin Bot Token (Optional; If not specified, scan with Weixin to bind later)</span><span class="i-zh">微信 Bot Token (可选；如不指定，可以随后微信扫码绑定)</span></label>
+                <input class="text-field" id="weixinBotToken" name="chat_weixin_bot_token" type="text" placeholder="token">
+              </div>
             </div>
           </div>
 

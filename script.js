@@ -143,6 +143,7 @@ function setupConfigTool() {
       lines.push(yamlLine("custom_gui_vlm_url", document.getElementById("guiVlmUrl")?.value.trim()));
       lines.push(yamlLine("custom_gui_vlm_key", document.getElementById("guiVlmKey")?.value.trim()));
       lines.push(yamlLine("custom_gui_vlm_name", document.getElementById("guiVlmName")?.value.trim()));
+      lines.push(yamlLine("tavily_api_key", document.getElementById("tavilyApiKey")?.value.trim()));
       if (useWisewkBackup?.checked) {
         lines.push(yamlLine("wisewk_key", document.getElementById("wisewkBackupKey")?.value.trim()));
         lines.push(yamlLine("use_wisewk_service", true, false));
@@ -169,7 +170,6 @@ function setupConfigTool() {
       lines.push(yamlLine("chat_lark_app_secret", document.getElementById("larkAppSecret")?.value.trim()));
     }
     if (channelCheckboxes.weixin?.checked) {
-      lines.push(yamlLine("chat_weixin_base_url", document.getElementById("weixinBaseUrl")?.value.trim() || "https://ilinkai.weixin.qq.com"));
       lines.push(yamlLine("chat_weixin_bot_token", document.getElementById("weixinBotToken")?.value.trim()));
     }
 
