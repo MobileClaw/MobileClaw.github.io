@@ -38,7 +38,7 @@
       <section class="hero-copy">
         <h1>
           <span class="i-en">Autonomous mobile agent, now as an app.</span>
-          <span class="i-zh">手机里的自主智能体，可直接安装 App 使用</span>
+          <span class="i-zh">简单易用的端侧智能体，直接安装 App 使用</span>
         </h1>
         <p class="hero-lead">
           <span class="i-en">MobileClaw turns an Android device into an autonomous agent runtime that operates through vision and GUI interaction, making agents more practical, understandable, and reliable.</span>
@@ -129,6 +129,87 @@
       </div>
     </section>
 
+    <section class="section" id="scenarios">
+      <div class="wrap">
+        <div class="section-head reveal">
+          <p class="eyebrow"><span class="i-en">Use Cases</span><span class="i-zh">应用场景</span></p>
+          <h2><span class="i-en">Typical workflows MobileClaw can support</span><span class="i-zh">MobileClaw 可支持的典型工作场景</span></h2>
+          <p class="lead">
+            <span class="i-en">From daily automation to cross-platform operations, MobileClaw is built for practical tasks that require app coordination and continuous execution.</span>
+            <span class="i-zh">从日常任务自动化到跨平台运营，MobileClaw 适合需要多应用协同和持续执行的实际任务。</span>
+          </p>
+        </div>
+
+        <div class="scenario-slider reveal" id="scenarioSlider" tabindex="0">
+          <div class="scenario-viewport">
+            <div class="scenario-track" id="scenarioTrack">
+              <article class="scenario-slide">
+                <div class="scenario-copy">
+                  <p class="scenario-kicker"><span class="i-en">Scenario 01</span><span class="i-zh">场景 01</span></p>
+                  <h3><span class="i-en">Smart Price Comparison</span><span class="i-zh">智能比价与信息汇总</span></h3>
+                  <p>
+                    <span class="i-en">Monitor prices, stock status, and reviews across shopping platforms and summarize the best option in real time.</span>
+                    <span class="i-zh">跨平台监控价格、库存和评价，并实时汇总最优购买选项。</span>
+                  </p>
+                </div>
+                <div class="scenario-media">
+                  <img src="res/usage_scenario_2.jpg" alt="MobileClaw smart price comparison scenario" loading="lazy">
+                </div>
+              </article>
+
+              <article class="scenario-slide">
+                <div class="scenario-copy">
+                  <p class="scenario-kicker"><span class="i-en">Scenario 02</span><span class="i-zh">场景 02</span></p>
+                  <h3><span class="i-en">Smart Home Automation</span><span class="i-zh">智能家居联动</span></h3>
+                  <p>
+                    <span class="i-en">Coordinate multiple smart home apps from a phone and trigger connected routines through a single agent.</span>
+                    <span class="i-zh">在手机上协调多个智能家居应用，通过一个智能体触发联动场景。</span>
+                  </p>
+                </div>
+                <div class="scenario-media">
+                  <img src="res/usage_scenario_3.jpg" alt="MobileClaw smart home automation scenario" loading="lazy">
+                </div>
+              </article>
+
+              <article class="scenario-slide">
+                <div class="scenario-copy">
+                  <p class="scenario-kicker"><span class="i-en">Scenario 03</span><span class="i-zh">场景 03</span></p>
+                  <h3><span class="i-en">Social Media Management</span><span class="i-zh">社交媒体运营</span></h3>
+                  <p>
+                    <span class="i-en">Support content publishing, cross-platform distribution, and community engagement directly from mobile workflows.</span>
+                    <span class="i-zh">直接围绕手机工作流支持内容发布、跨平台分发和社区互动。</span>
+                  </p>
+                </div>
+                <div class="scenario-media">
+                  <img src="res/usage_scenario_4.jpg" alt="MobileClaw social media management scenario" loading="lazy">
+                </div>
+              </article>
+
+              <article class="scenario-slide">
+                <div class="scenario-copy">
+                  <p class="scenario-kicker"><span class="i-en">Scenario 04</span><span class="i-zh">场景 04</span></p>
+                  <h3><span class="i-en">Smart Customer Service</span><span class="i-zh">智能客服协同</span></h3>
+                  <p>
+                    <span class="i-en">Handle support messages, after-sales tickets, and return workflows across e-commerce platforms with one agent workflow.</span>
+                    <span class="i-zh">在多个电商平台之间统一处理客服消息、售后工单和退货流程。</span>
+                  </p>
+                </div>
+                <div class="scenario-media">
+                  <img src="res/usage_scenario_1.jpg" alt="MobileClaw smart customer service scenario" loading="lazy">
+                </div>
+              </article>
+            </div>
+          </div>
+
+          <div class="scenario-toolbar">
+            <button class="scenario-nav" type="button" id="scenarioPrev" aria-label="Previous scenario">←</button>
+            <div class="scenario-dots" id="scenarioDots" aria-label="Scenario navigation"></div>
+            <button class="scenario-nav" type="button" id="scenarioNext" aria-label="Next scenario">→</button>
+          </div>
+        </div>
+      </div>
+    </section>
+
     <section class="section section-soft" id="quick-start">
       <div class="wrap">
         <div class="section-head reveal">
@@ -151,7 +232,7 @@
           </article>
           <article class="quick-panel reveal reveal-delay-2">
             <h3><span class="i-en">2. Configure models & chat</span><span class="i-zh">2. 配置模型和聊天接口</span></h3>
-            <p><span class="i-en">Set up your model endpoints and preferred chat channels (Telegram, Weixin, Zulip, Lark, etc.).</span><span class="i-zh">配置模型接口与偏好的聊天渠道。支持主流的模型接口和聊天方式，如 Telegram、Zulip、微信、飞书等。</span></p>
+            <p><span class="i-en">Set up model endpoints and chat channels (Telegram, Weixin, Zulip, Lark, etc.).</span><span class="i-zh">配置模型接口与聊天渠道。支持主流的模型接口和聊天方式，如 Telegram、Zulip、微信、飞书等。</span></p>
             <a class="inline-link" href="config-tool.html">
               <span class="i-en">Use config tool</span>
               <span class="i-zh">使用配置工具</span>

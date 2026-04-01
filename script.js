@@ -12,6 +12,43 @@ function toggleLang() {
   setLang(document.body.className === "zh" ? "en" : "zh");
 }
 
+function renderQrCode(container, text, options = {}) {
+  if (!container || typeof QRCode === "undefined" || !text) {
+    return false;
+  }
+
+  const {
+    width = 200,
+    height = 200,
+  } = options;
+
+  const levels = [
+    QRCode.CorrectLevel?.L,
+    QRCode.CorrectLevel?.M,
+    QRCode.CorrectLevel?.Q,
+    QRCode.CorrectLevel?.H,
+  ].filter((level) => level !== undefined);
+
+  for (const level of levels) {
+    try {
+      container.innerHTML = "";
+      new QRCode(container, {
+        text,
+        width,
+        height,
+        correctLevel: level,
+      });
+      return true;
+    } catch (error) {
+      container.innerHTML = "";
+      console.warn("QR generation retrying with another correction level:", error);
+    }
+  }
+
+  container.innerHTML = '<p class="qr-error">QR code generation failed. Please copy the YAML text instead.</p>';
+  return false;
+}
+
 function setupDownloadModal() {
   const openButtons = document.querySelectorAll("[data-download-trigger='true']");
   const modal = document.getElementById("downloadModal");
@@ -34,13 +71,10 @@ function setupDownloadModal() {
     if (qrReady || typeof QRCode === "undefined") {
       return;
     }
-    qrContainer.innerHTML = "";
-    new QRCode(qrContainer, {
-      text: apkUrl,
+    qrReady = renderQrCode(qrContainer, apkUrl, {
       width: 200,
       height: 200,
     });
-    qrReady = true;
   }
 
   function openModal() {
@@ -176,14 +210,12 @@ function setupConfigTool() {
     return lines.filter(Boolean).join("\n");
   }
 
-  let qrCodeInstance = null;
   function renderQr(content) {
-    qrContainer.innerHTML = "";
     if (typeof QRCode === "undefined" || !content) {
+      qrContainer.innerHTML = "";
       return;
     }
-    qrCodeInstance = new QRCode(qrContainer, {
-      text: content,
+    renderQrCode(qrContainer, content, {
       width: 200,
       height: 200,
     });
@@ -243,6 +275,104 @@ function setupReveal() {
   items.forEach((item) => observer.observe(item));
 }
 
+function setupScenarioSlider() {
+  const slider = document.getElementById("scenarioSlider");
+  const track = document.getElementById("scenarioTrack");
+  const prevButton = document.getElementById("scenarioPrev");
+  const nextButton = document.getElementById("scenarioNext");
+  const dotsRoot = document.getElementById("scenarioDots");
+
+  if (!slider || !track || !prevButton || !nextButton || !dotsRoot) {
+    return;
+  }
+
+  const slides = Array.from(track.children);
+  if (!slides.length) {
+    return;
+  }
+
+  let currentIndex = 0;
+  let autoplayTimer = null;
+  let touchStartX = 0;
+  let touchDeltaX = 0;
+  const autoplayDelay = 4200;
+
+  const dots = slides.map((_, index) => {
+    const dot = document.createElement("button");
+    dot.type = "button";
+    dot.className = "scenario-dot";
+    dot.setAttribute("aria-label", `Go to scenario ${index + 1}`);
+    dot.addEventListener("click", () => goTo(index));
+    dotsRoot.appendChild(dot);
+    return dot;
+  });
+
+  function update() {
+    track.style.transform = `translateX(-${currentIndex * 100}%)`;
+    dots.forEach((dot, index) => {
+      dot.classList.toggle("is-active", index === currentIndex);
+      dot.setAttribute("aria-current", index === currentIndex ? "true" : "false");
+    });
+  }
+
+  function goTo(index) {
+    currentIndex = (index + slides.length) % slides.length;
+    update();
+  }
+
+  function stopAutoplay() {
+    if (autoplayTimer) {
+      window.clearInterval(autoplayTimer);
+      autoplayTimer = null;
+    }
+  }
+
+  function startAutoplay() {
+    stopAutoplay();
+    autoplayTimer = window.setInterval(() => {
+      goTo(currentIndex + 1);
+    }, autoplayDelay);
+  }
+
+  prevButton.addEventListener("click", () => goTo(currentIndex - 1));
+  nextButton.addEventListener("click", () => goTo(currentIndex + 1));
+
+  slider.addEventListener("mouseenter", stopAutoplay);
+  slider.addEventListener("mouseleave", startAutoplay);
+  slider.addEventListener("focusin", stopAutoplay);
+  slider.addEventListener("focusout", startAutoplay);
+
+  slider.addEventListener("keydown", (event) => {
+    if (event.key === "ArrowLeft") {
+      goTo(currentIndex - 1);
+    } else if (event.key === "ArrowRight") {
+      goTo(currentIndex + 1);
+    }
+  });
+
+  slider.addEventListener("touchstart", (event) => {
+    touchStartX = event.touches[0]?.clientX || 0;
+    touchDeltaX = 0;
+    stopAutoplay();
+  }, { passive: true });
+
+  slider.addEventListener("touchmove", (event) => {
+    touchDeltaX = (event.touches[0]?.clientX || 0) - touchStartX;
+  }, { passive: true });
+
+  slider.addEventListener("touchend", () => {
+    if (Math.abs(touchDeltaX) > 48) {
+      goTo(touchDeltaX > 0 ? currentIndex - 1 : currentIndex + 1);
+    }
+    startAutoplay();
+  });
+
+  slider.addEventListener("touchcancel", startAutoplay);
+
+  update();
+  startAutoplay();
+}
+
 function initLang() {
   const saved = localStorage.getItem("mc-lang");
   if (saved === "zh" || saved === "en") {
@@ -258,6 +388,7 @@ document.addEventListener("DOMContentLoaded", () => {
   setupReveal();
   setupDownloadModal();
   setupConfigTool();
+  setupScenarioSlider();
 
   const toggle = document.getElementById("langToggle");
   if (toggle) {

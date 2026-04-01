@@ -559,6 +559,14 @@ button.btn {
   font-size: 0.88rem;
 }
 
+.qr-error {
+  margin: 0;
+  color: var(--text-soft);
+  font-size: 0.9rem;
+  line-height: 1.5;
+  text-align: center;
+}
+
 .yaml-preview {
   min-height: 320px;
   resize: vertical;
@@ -730,6 +738,122 @@ button.btn {
   grid-template-columns: repeat(3, minmax(0, 1fr));
   gap: 0;
   border-top: 1px solid var(--line);
+}
+
+.scenario-slider {
+  padding-top: 28px;
+  border-top: 1px solid var(--line);
+}
+
+.scenario-toolbar {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 16px;
+  margin-top: 20px;
+}
+
+.scenario-nav {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 44px;
+  height: 44px;
+  border: 1px solid var(--line);
+  border-radius: 999px;
+  background: rgba(255, 255, 255, 0.92);
+  color: var(--text);
+  font: inherit;
+  font-size: 1.1rem;
+  cursor: pointer;
+  transition: transform 180ms ease, box-shadow 180ms ease, border-color 180ms ease;
+}
+
+.scenario-nav:hover {
+  transform: translateY(-1px);
+  box-shadow: 0 10px 24px rgba(38, 94, 180, 0.1);
+  border-color: var(--line-strong);
+}
+
+.scenario-dots {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  flex: 1;
+}
+
+.scenario-dot {
+  width: 10px;
+  height: 10px;
+  padding: 0;
+  border: 0;
+  border-radius: 999px;
+  background: rgba(37, 99, 235, 0.18);
+  cursor: pointer;
+  transition: width 180ms ease, background-color 180ms ease, transform 180ms ease;
+}
+
+.scenario-dot.is-active {
+  width: 34px;
+  background: linear-gradient(90deg, var(--primary), var(--accent));
+}
+
+.scenario-viewport {
+  overflow: hidden;
+}
+
+.scenario-track {
+  display: flex;
+  transition: transform 380ms ease;
+  will-change: transform;
+}
+
+.scenario-slide {
+  flex: 0 0 100%;
+  display: grid;
+  grid-template-columns: minmax(220px, 0.3fr) minmax(0, 0.7fr);
+  gap: 36px;
+  align-items: center;
+}
+
+.scenario-copy {
+  max-width: 30ch;
+}
+
+.scenario-kicker {
+  margin: 0 0 8px;
+  color: var(--primary);
+  font-size: 0.8rem;
+  font-weight: 800;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+.scenario-slide h3 {
+  margin-bottom: 12px;
+  font-size: clamp(1.34rem, 2vw, 1.72rem);
+  line-height: 1.08;
+}
+
+.scenario-slide p:last-child {
+  margin: 0;
+  color: var(--text-soft);
+}
+
+.scenario-media {
+  overflow: hidden;
+  border-radius: 28px;
+  border: 1px solid rgba(205, 221, 243, 0.94);
+  background: rgba(255, 255, 255, 0.82);
+  box-shadow: var(--shadow);
+}
+
+.scenario-media img {
+  width: 100%;
+  height: auto;
+  aspect-ratio: 16 / 9;
+  object-fit: cover;
 }
 
 .quick-panel {
@@ -911,6 +1035,15 @@ button.btn {
 
   .tool-layout {
     grid-template-columns: 1fr;
+  }
+
+  .scenario-slide {
+    grid-template-columns: 1fr;
+    gap: 18px;
+  }
+
+  .scenario-copy {
+    max-width: none;
   }
 
   .feature-card:nth-child(3n) {
