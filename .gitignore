@@ -12,9 +12,6 @@ Thumbs.db
 # Logs
 *.log
 
-# Local build / release artifacts
-files/*.apk
-
 # Optional local metadata
 .env
 .env.*
