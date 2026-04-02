@@ -56,7 +56,7 @@ function setupDownloadModal() {
   const qrContainer = document.getElementById("downloadQrCode");
   const qrUrl = document.getElementById("downloadQrUrl");
   const directLink = document.getElementById("directApkLink");
-  const apkUrl = "https://github.com/MobileClaw/MobileClaw/releases/latest/download/MobileClaw.apk";
+  const apkUrl = "https://mobileclaw.cc/files/MobileClaw.apk";
 
   if (!openButtons.length || !modal || !closeButton || !qrContainer || !directLink) {
     return;
@@ -373,6 +373,102 @@ function setupScenarioSlider() {
   startAutoplay();
 }
 
+function setupHeroExampleSlider() {
+  const slider = document.getElementById("heroExampleSlider");
+  const track = document.getElementById("heroExampleTrack");
+  const prevButton = document.getElementById("heroExamplePrev");
+  const nextButton = document.getElementById("heroExampleNext");
+  const dotsRoot = document.getElementById("heroExampleDots");
+
+  if (!slider || !track || !prevButton || !nextButton || !dotsRoot) {
+    return;
+  }
+
+  const slides = Array.from(track.children);
+  const videos = Array.from(slider.querySelectorAll("video"));
+  if (!slides.length) {
+    return;
+  }
+
+  let currentIndex = 0;
+  let touchStartX = 0;
+  let touchDeltaX = 0;
+
+  const dots = slides.map((_, index) => {
+    const dot = document.createElement("button");
+    dot.type = "button";
+    dot.className = "hero-example-dot";
+    dot.setAttribute("aria-label", `Go to example ${index + 1}`);
+    dot.addEventListener("click", () => goTo(index));
+    dotsRoot.appendChild(dot);
+    return dot;
+  });
+
+  function syncVideos() {
+    slides.forEach((slide, index) => {
+      slide.querySelectorAll("video").forEach((video) => {
+        if (index === currentIndex) {
+          const promise = video.play();
+          if (promise && typeof promise.catch === "function") {
+            promise.catch(() => {});
+          }
+        } else {
+          video.pause();
+          video.currentTime = 0;
+        }
+      });
+    });
+  }
+
+  function update() {
+    track.style.transform = `translateX(-${currentIndex * 100}%)`;
+    dots.forEach((dot, index) => {
+      dot.classList.toggle("is-active", index === currentIndex);
+      dot.setAttribute("aria-current", index === currentIndex ? "true" : "false");
+    });
+    syncVideos();
+  }
+
+  function goTo(index) {
+    currentIndex = (index + slides.length) % slides.length;
+    update();
+  }
+
+  prevButton.addEventListener("click", () => goTo(currentIndex - 1));
+  nextButton.addEventListener("click", () => goTo(currentIndex + 1));
+
+  slider.addEventListener("keydown", (event) => {
+    if (event.key === "ArrowLeft") {
+      goTo(currentIndex - 1);
+    } else if (event.key === "ArrowRight") {
+      goTo(currentIndex + 1);
+    }
+  });
+
+  slider.addEventListener("touchstart", (event) => {
+    touchStartX = event.touches[0]?.clientX || 0;
+    touchDeltaX = 0;
+  }, { passive: true });
+
+  slider.addEventListener("touchmove", (event) => {
+    touchDeltaX = (event.touches[0]?.clientX || 0) - touchStartX;
+  }, { passive: true });
+
+  slider.addEventListener("touchend", () => {
+    if (Math.abs(touchDeltaX) > 48) {
+      goTo(touchDeltaX > 0 ? currentIndex - 1 : currentIndex + 1);
+    }
+  });
+
+  videos.forEach((video) => {
+    video.muted = true;
+    video.loop = true;
+    video.playsInline = true;
+  });
+
+  update();
+}
+
 function initLang() {
   const saved = localStorage.getItem("mc-lang");
   if (saved === "zh" || saved === "en") {
@@ -388,6 +484,7 @@ document.addEventListener("DOMContentLoaded", () => {
   setupReveal();
   setupDownloadModal();
   setupConfigTool();
+  setupHeroExampleSlider();
   setupScenarioSlider();
 
   const toggle = document.getElementById("langToggle");

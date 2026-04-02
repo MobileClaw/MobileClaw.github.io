@@ -54,6 +54,14 @@
             <span class="i-zh">快速开始</span>
           </a>
         </div>
+
+        <div style="hero-note">
+          <a class="inline-link" href="#scenarios">
+            <span class="i-en"> ▶️ Explore more use cases </span>
+            <span class="i-zh"> ▶️ 探索更多使用场景 </span>
+          </a>
+        </div>
+
         <div class="hero-note">
           <strong><span class="i-en">Safety Notice</span><span class="i-zh">安全提醒</span></strong>
           <span class="i-en">Install the Android app on a dedicated secondary phone instead of your primary device.</span>
@@ -61,22 +69,84 @@
           <span class="i-en">Before use, make sure you understand the security risks involved when agents operate devices on your behalf.</span>
           <span class="i-zh">使用前请确保你了解智能体操作设备可能存在的安全风险。</span>
         </div>
+
       </section>
 
       <section class="hero-visual reveal reveal-delay-1">
-        <div class="media-card">
-          <div class="media-head">
-            <span></span><span></span><span></span>
+        <div class="hero-example-slider" id="heroExampleSlider" tabindex="0">
+          <div class="media-card">
+            <div class="hero-example-viewport">
+              <div class="hero-example-track" id="heroExampleTrack">
+                <article class="hero-example-slide">
+                  <div class="hero-example-panel">
+                    <div class="hero-example-frame">
+                      <img src="res/examples/mobileclaw_example_shopping.jpg" alt="User gives shopping task on primary device" loading="lazy">
+                    </div>
+                    <p class="hero-example-caption">
+                      <span class="i-en">User gives instructions on the primary device</span>
+                      <span class="i-zh">用户在主设备上下达指令</span>
+                    </p>
+                  </div>
+                  <div class="hero-example-panel">
+                    <div class="hero-example-frame">
+                      <video src="res/examples/mobileclaw_example_shopping.mp4" muted loop playsinline preload="metadata"></video>
+                    </div>
+                    <p class="hero-example-caption">
+                      <span class="i-en">Agent works on the secondary device</span>
+                      <span class="i-zh">智能体在闲置设备上工作</span>
+                    </p>
+                  </div>
+                </article>
+
+                <article class="hero-example-slide">
+                  <div class="hero-example-panel">
+                    <div class="hero-example-frame">
+                      <img src="res/examples/mobileclaw_example_chat.jpg" alt="User gives chat workflow instructions on primary device" loading="lazy">
+                    </div>
+                    <p class="hero-example-caption">
+                      <span class="i-en">User gives instructions on the primary device</span>
+                      <span class="i-zh">用户在主设备上下达指令</span>
+                    </p>
+                  </div>
+                  <div class="hero-example-panel">
+                    <div class="hero-example-frame">
+                      <video src="res/examples/mobileclaw_example_chat.mp4" muted loop playsinline preload="metadata"></video>
+                    </div>
+                    <p class="hero-example-caption">
+                      <span class="i-en">Agent works on the secondary device</span>
+                      <span class="i-zh">智能体在闲置设备上工作</span>
+                    </p>
+                  </div>
+                </article>
+
+                <article class="hero-example-slide">
+                  <div class="hero-example-panel">
+                    <div class="hero-example-frame">
+                      <img src="res/examples/mobileclaw_example_social.jpg" alt="User gives social workflow instructions on primary device" loading="lazy">
+                    </div>
+                    <p class="hero-example-caption">
+                      <span class="i-en">User gives instructions on the primary device</span>
+                      <span class="i-zh">用户在主设备上下达指令</span>
+                    </p>
+                  </div>
+                  <div class="hero-example-panel">
+                    <div class="hero-example-frame">
+                      <video src="res/examples/mobileclaw_example_social.mp4" muted loop playsinline preload="metadata"></video>
+                    </div>
+                    <p class="hero-example-caption">
+                      <span class="i-en">Agent works on the secondary device</span>
+                      <span class="i-zh">智能体在闲置设备上工作</span>
+                    </p>
+                  </div>
+                </article>
+              </div>
+            </div>
+            <div class="hero-example-toolbar">
+              <button class="hero-example-nav" type="button" id="heroExamplePrev" aria-label="Previous example">←</button>
+              <div class="hero-example-dots" id="heroExampleDots" aria-label="Example navigation"></div>
+              <button class="hero-example-nav" type="button" id="heroExampleNext" aria-label="Next example">→</button>
+            </div>
           </div>
-          <div class="visual-frame">
-            <img src="res/mobileclaw_demo_5x.gif" alt="MobileClaw demo" loading="lazy">
-          </div>
-        </div>
-        <div style="text-align: center">
-          <a class="inline-link center" href="#">
-            <span class="i-en"> ▶️ Watch more demos of MobileClaw </span>
-            <span class="i-zh"> ▶️ 更多 MobileClaw 运行演示 </span>
-          </a>
         </div>
       </section>
     </div>
@@ -225,7 +295,7 @@
           <article class="quick-panel reveal">
             <h3><span class="i-en">1. Download & install the app</span><span class="i-zh">1. 下载并安装应用</span></h3>
             <p><span class="i-en">Get the latest Android APK file from this site and install it on a dedicated Android device.</span><span class="i-zh">从本站下载最新 Android 安装包（APK），并安装到专用 Android 设备上。</span></p>
-            <a class="inline-link" href="https://github.com/MobileClaw/MobileClaw/releases/latest/download/MobileClaw.apk" data-download-trigger="true">
+            <a class="inline-link" href="https://mobileclaw.cc/files/MobileClaw.apk" data-download-trigger="true">
               <span class="i-en">Download MobileClaw.apk</span>
               <span class="i-zh">下载 MobileClaw.apk</span>
             </a>
@@ -291,7 +361,7 @@
         <div class="qr-code" id="downloadQrCode" aria-label="Download QR code"></div>
       </div>
       <p class="qr-url" id="downloadQrUrl"></p>
-      <a class="btn secondary modal-download-link" id="directApkLink" href="https://github.com/MobileClaw/MobileClaw/releases/latest/download/MobileClaw.apk">
+      <a class="btn secondary modal-download-link" id="directApkLink" href="https://mobileclaw.cc/files/MobileClaw.apk">
         <span class="i-en">Download APK directly to this device</span>
         <span class="i-zh">直接下载 APK 到当前设备</span>
       </a>
