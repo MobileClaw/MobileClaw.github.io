@@ -1,9 +1,9 @@
 {
-  "versionCode": 35,
-  "versionName": "0.3.5",
+  "versionCode": 36,
+  "versionName": "0.3.6",
   "apkUrl": "https://mobileclaw.cc/files/MobileClaw.apk",
-  "releaseNotes": "Fix reliability bugs; Add search capability.",
+  "releaseNotes": "Fix several bugs; Add browser-use mode.",
   "force": false,
-  "publishedAt": "2026-04-02",
+  "publishedAt": "2026-04-11",
   "minSupportedVersionCode": 30
 }
